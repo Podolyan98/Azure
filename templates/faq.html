@@ -1,0 +1,147 @@
+{% extends 'layout.html' %}
+
+{% block title %} FAQ {% endblock %}
+
+{% block body %}
+<style type="text/css">
+.pd-2{
+    padding:2%;
+}
+.pd-r-2{
+    padding-right:2%;
+}
+.pd-l-2{
+    padding-left:2%;
+}
+.pd-t-2{
+    padding-top:2%;
+}
+.pd-b-2{
+    padding-bottom:2%;
+}
+
+ul li{
+    list-style:one;
+}
+div[data-toggle="collapse"]{
+   border-bottom:1px solid #BBDEFB;
+   width:100%;
+   cursor:pointer;
+   padding:1%;
+}
+.collapse{
+    background:#F5F5F5;
+}
+</style>
+<div class="container">
+	<div class="row bg-info card my-4 mb-3 pd-l-2">
+		<h3>
+		    <span class="fa fa-question-circle text-white"></span>
+		    Frequently Asked Questions
+		</h3>
+	</div>
+	
+	<div class="row">
+	    <p class="col-sm-6 col-md-12">
+	    Below are answers to some frequently asked questions about this platform.
+	    </p>
+	    <ul id="accordion" class="col-sm-6 col-md-12">
+	        <li>
+	            <div id="choose" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+	                What is the purpose of this site?
+	                <span class="fa fa-chevron-up fa-1x text-info pull-right"></span>
+	            </div>
+	            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    This site allows the user to find specialists on wellness.com, ratemds.com, healthgrades.com and gaswork.com.
+                  </div>
+                </div>
+	        </li>
+	        <li>
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+	                How to use the search?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    You can specify the specialty, state and city. After that, click the Scrape button to start web scraping.
+                  </div>
+                </div>
+	        </li>
+	        <li>
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	                Why do I need to specify an email address?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    After collecting information by web scraper, you will receive a notification.
+                  </div>
+                </div>
+	        </li>
+	        <li>
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+	                How to see detailed information about a specialist on the source site?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                  <div class="card-body">
+                    Click the View Profile button, then the specialist’s name to go to the original profile page.
+                  </div>
+                </div>
+	        </li>
+	        <li>
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+	                How to delete a specialist profile?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="card-body">
+                    To do this, click the Delete button.
+                  </div>
+                </div>
+	        </li>
+	        <li>
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+	                Can I download the data?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                  <div class="card-body">
+                    Click the Download button to get the csv file.
+                  </div>
+                </div>
+	        </li>
+	        <li>
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+	                How to delete all data on the page?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                  <div class="card-body">
+                    The Remove button will delete all the data of the tab on which you are located.
+                  </div>
+                </div>
+	        </li>
+	        <li>
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+	                How to stop the data collection process?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                  <div class="card-body">
+                    You can restart the application by clicking on the button in the upper right corner.
+                  </div>
+                </div>
+	        </li>
+	    </ul>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+    $("div[data-toggle=collapse]").click(function(){
+        $(this).children('span').toggleClass("fa-chevron-down fa-chevron-up");
+    });
+})
+</script>
+{% endblock %}

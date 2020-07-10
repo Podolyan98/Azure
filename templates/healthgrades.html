@@ -1,0 +1,482 @@
+{% extends "layout.html" %}
+{% block title %} Healthgrades {% endblock %}
+{% block body %}
+<style type="text/css">
+  .choices__list.choices__list--dropdown.is-active {
+  z-index: 4;
+}
+</style>
+<!-- Выбор специальности -->
+<div class="row d-flex justify-content-center mt-100">
+  <div class="col-md-10"> 
+    <select id="multiple-specialty" placeholder="Select specialty" multiple>
+      <option value="acupuncture"/>Acupuncture</option>
+      <option value="addiction-medicine"/>Addiction Medicine</option>
+      <option value="addiction-psychiatry"/>Addiction Psychiatry</option>
+      <option value="substance-abuse-counseling-drug-counseling"/>Addiction and Substance Abuse Counseling</option>
+      <option value="psychology"/>Adolescent Psychology</option>
+      <option value="advanced-heart-failure-and-transplant-cardiology"/>Advanced Heart Failure & Transplant Cardiology</option>
+      <option value="aerospace-medicine"/>Aerospace Medicine</option>
+      <option value="allergy-immunology"/>Allergy & Immunology</option>
+      <option value="alternative-care"/>Alternative Care</option>
+      <option value="clinical-pathology-anatomic-pathology"/>Anatomic & Clinical Pathology</option>
+      <option value="anatomic-pathology"/>Anatomic Pathology</option>
+      <option value="anesthesiology"/>Anesthesiology</option>
+      <option value="anesthesiology-assistant"/>Anesthesiology (Anesthesiology Assistant)</option>
+      <option value="art-therapy"/>Art Therapy</option>
+      <option value="assisted-living"/>Assisted Living</option>
+      <option value="assistive-therapy"/>Assistive Therapy</option>
+      <option value="athletic-training"/>Athletic Training</option>
+      <option value="attendant-care"/>Attendant Care</option>
+      <option value="audiology-technology"/>Audiology</option>
+      <option value="audiology-assistant"/>Audiology (Audiology Assistant)</option>
+      <option value="bariatric-medicine"/>Bariatric Medicine</option>
+      <option value="bariatric-surgery"/>Bariatric Surgery</option>
+      <option value="behavior-analysis"/>Behavior Analysis</option>
+      <option value="blood-bank-transfusion-medicine"/>Blood Banking & Transfusion Medicine</option>
+      <option value="brain-injury-medicine"/>Brain Injury Medicine</option>
+      <option value="cardiology"/>Cardiology</option>
+      <option value="cardiothoracic-surgery"/>Cardiothoracic Surgery</option>
+      <option value="cardiovascular-technology"/>Cardiovascular Technology</option>
+      <option value="chemical-pathology"/>Chemical Pathology</option>
+      <option value="adolescent-psychiatry-pediatric-psychiatry"/>Child & Adolescent Psychiatry</option>
+      <option value="child-abuse-pediatrics"/>Child Abuse Pediatrics</option>
+      <option value="chiropractic"/>Chiropractic</option>
+      <option value="clinical-cardiac-electrophysiology"/>Clinical Cardiac Electrophysiology</option>
+      <option value="clinical-exercise-physiology"/>Clinical Exercise Physiology</option>
+      <option value="clinical-informatics"/>Clinical Informatics</option>
+      <option value="clinical-lipidology"/>Clinical Lipidology</option>
+      <option value="clinical-neurophysiology"/>Clinical Neurophysiology</option>
+      <option value="clinical-pathology"/>Clinical Pathology</option>
+      <option value="clinical-pharmacology"/>Clinical Pharmacology</option>
+      <option value="clinical-psychology"/>Clinical Psychology</option>
+      <option value="colorectal-surgery"/>Colorectal Surgery</option>
+      <option value="community-health-work"/>Community Health Work</option>
+      <option value="congenital-cardiac-surgery"/>Congenital Cardiac Surgery</option>
+      <option value="cosmetic-plastic-reconstructive-surgery"/>Cosmetic, Plastic & Reconstructive Surgery</option>
+      <option value="counseling"/>Counseling</option>
+      <option value="critical-care-medicine"/>Critical Care Medicine</option>
+      <option value="critical-care-surgery"/>Critical Care Surgery</option>
+      <option value="cytopathology"/>Cytopathology</option>
+      <option value="dance-therapy"/>Dance Therapy</option>
+      <option value="darkroom-technology"/>Darkroom Technology</option>
+      <option value="dental-hygiene"/>Dental Hygiene</option>
+      <option value="dentistry-general"/>Dentistry</option>
+      <option value="dermatology"/>Dermatology</option>
+      <option value="dermatopathology"/>Dermatopathology</option>
+      <option value="developmental-therapy"/>Developmental Therapy</option>
+      <option value="pediatric-developmental-behavioral-health"/>Developmental-Behavioral Pediatrics</option>
+      <option value="diagnostic-laboratory-dermatological-immunology"/>Diagnostic Laboratory & Dermatologic Immunology</option>
+      <option value="diagnostic-radiology"/>Diagnostic Radiology</option>
+      <option value="diagnostic-ultrasound"/>Diagnostic Ultrasound Imaging</option>
+      <option value="diet-nutrition"/>Dietetics</option>
+      <option value="otolaryngology"/>Ear, Nose, and Throat</option>
+      <option value="electrodiagnostic-medicine"/>Electrodiagnostic Medicine</option>
+      <option value="emt"/>Emergency Medical Technology (EMT)</option>
+      <option value="emergency-medicine"/>Emergency Medicine</option>
+      <option value="diabetes-metabolism-endocrinology"/>Endocrinology, Diabetes & Metabolism</option>
+      <option value="endodontics"/>Endodontics</option>
+      <option value="family-practice"/>Family Medicine</option>
+      <option value="female-pelvic-medicine-and-reconstructive-surgery"/>Female Pelvic Medicine & Reconstructive Surgery</option>
+      <option value="forensic-pathology"/>Forensic Pathology</option>
+      <option value="forensic-psychiatry"/>Forensic Psychiatry</option>
+      <option value="gastroenterology"/>Gastroenterology</option>
+      <option value="dental-assistant"/>General Dentistry (Dental Assistant)</option>
+      <option value="surgery-general"/>General Surgery</option>
+      <option value="genetic-counseling"/>Genetic Counseling</option>
+      <option value="clinical-genetics"/>Genetics</option>
+      <option value="geriatric-medicine"/>Geriatric Medicine</option>
+      <option value="health-education"/>Health Education</option>
+      <option value="healthcare-coordination"/>Healthcare Coordination</option>
+      <option value="hearing-speech-therapy"/>Hearing & Speech Therapy</option>
+      <option value="hearing-instruments"/>Hearing Instruments</option>
+      <option value="hematology"/>Hematology</option>
+      <option value="hematopathology"/>Hematopathology</option>
+      <option value="hepatology"/>Hepatology</option>
+      <option value="holistic-medicine"/>Holistic Medicine</option>
+      <option value="home-health-aide"/>Home Health (Aide)</option>
+      <option value="homeopathy"/>Homeopathy</option>
+      <option value="hospice-care-palliative-medicine"/>Hospice & Palliative Medicine</option>
+      <option value="hospitalist"/>Hospital Medicine</option>
+      <option value="immunopathology"/>Immunopathology</option>
+      <option value="infectious-disease-medicine"/>Infectious Disease Medicine</option>
+      <option value="internal-medicine"/>Internal Medicine</option>
+      <option value="interventional-cardiology"/>Interventional Cardiology</option>
+      <option value="doula"/>Labor Coaching (Doula)</option>
+      <option value="laboratory-management-technology"/>Laboratory Management Technology</option>
+      <option value="laboratory-medicine"/>Laboratory Medicine</option>
+      <option value="lactation-consulting"/>Lactation Consulting</option>
+      <option value="forensic-legal-medicine"/>Legal Medicine</option>
+      <option value="family-marriage-counseling"/>Marriage & Family Therapy</option>
+      <option value="massage-therapy"/>Massage Therapy</option>
+      <option value="mastectomy-fitter"/>Mastectomy Fitting</option>
+      <option value="fetal-medicine-maternal-medicine"/>Maternal-Fetal Medicine</option>
+      <option value="mechanotherapy"/>Mechanotherapy</option>
+      <option value="medical-editing"/>Medical Editing</option>
+      <option value="clinical-ethics"/>Medical Ethics</option>
+      <option value="independent-medical-examinations"/>Medical Examiner</option>
+      <option value="medical-informatics"/>Medical Informatics</option>
+      <option value="medical-microbiology"/>Medical Microbiology</option>
+      <option value="medical-physics"/>Medical Physics</option>
+      <option value="speech-language-technology"/>Medical Technology</option>
+      <option value="medical-toxicology"/>Medical Toxicology</option>
+      <option value="mental-health-professional"/>Mental Health </option>
+      <option value="midwifery"/>Midwifery</option>
+      <option value="molecular-genetic-pathology"/>Molecular Genetic Pathology</option>
+      <option value="music-therapy"/>Music Therapy</option>
+      <option value="naprapathy"/>Naprapathy</option>
+      <option value="naturopathy"/>Naturopathy</option>
+      <option value="perinatal-medicine-neonatal-medicine"/>Neonatal Medicine</option>
+      <option value="nephrology"/>Nephrology</option>
+      <option value="neurodevelopment-disabilities"/>Neurodevelopmental Disabilities</option>
+      <option value="medical-genetics"/>Neurogenetics</option>
+      <option value="neurology"/>Neurology</option>
+      <option value="neuromusculoskeletal-medicine"/>Neuromusculoskeletal Medicine</option>
+      <option value="neuropathology"/>Neuropathology</option>
+      <option value="neuropsychology"/>Neuropsychology</option>
+      <option value="neuroradiology"/>Neuroradiology</option>
+      <option value="neurosurgery"/>Neurosurgery</option>
+      <option value="otology-neurotology"/>Neurotology</option>
+      <option value="nuclear-medicine"/>Nuclear Medicine</option>
+      <option value="nuclear-radiology"/>Nuclear Radiology</option>
+      <option value="nurse-anesthesiology"/>Nurse Anesthesiology</option>
+      <option value="clinical-nursing"/>Nursing (Clinical Nurse Specialist)</option>
+      <option value="nurse-practitioner"/>Nursing (Nurse Practitioner)</option>
+      <option value="registered-nurse"/>Nursing (Registered Nurse)</option>
+      <option value="nursing-services"/>Nursing Services</option>
+      <option value="obstetrics-gynecology"/>Obstetrics & Gynecology</option>
+      <option value="rehabilitation-occupational-physical-therapy"/>Occupational & Physical Therapy</option>
+      <option value="occupational-medicine"/>Occupational Medicine</option>
+      <option value="occupational-therapy"/>Occupational Therapy</option>
+      <option value="occupational-therapy-assistant"/>Occupational Therapy (Occupational Therapy Assistant)</option>
+      <option value="ocularistry"/>Ocularistry</option>
+      <option value="ophthalmic-technology"/>Ophthalmic Technology</option>
+      <option value="ophthalmology"/>Ophthalmology</option>
+      <option value="ophthalmic-assistant"/>Ophthamology (Ophthalmic Assistant)</option>
+      <option value="optometry"/>Optometry</option>
+      <option value="optometry-assistant"/>Optometry (Optometry Assistant)</option>
+      <option value="optometry-technology"/>Optometry Technology</option>
+      <option value="oral-pathology"/>Oral & Maxillofacial Pathology</option>
+      <option value="oral-and-maxillofacial-radiology"/>Oral & Maxillofacial Radiology</option>
+      <option value="oral-surgery-maxillofacial-surgery"/>Oral & Maxillofacial Surgery</option>
+      <option value="orthodontics"/>Orthodontics & Dentofacial Orthopedics</option>
+      <option value="hand-surgery"/>Orthopedic Hand Surgery</option>
+      <option value="spine-surgery"/>Orthopedic Spine Surgery</option>
+      <option value="orthopedic-surgery"/>Orthopedic Surgery</option>
+      <option value="orthoptics"/>Orthoptics</option>
+      <option value="orthotic-fitting"/>Orthotic Fitting</option>
+      <option value="other"/>Other</option>
+      <option value="pain-medicine"/>Pain Medicine</option>
+      <option value="pathology-technology"/>Pathology Technology</option>
+      <option value="pediatric-allergy-and-immunology"/>Pediatric Allergy & Immunology</option>
+      <option value="pediatric-anesthesiology"/>Pediatric Anesthesiology</option>
+      <option value="pediatric-cardiology"/>Pediatric Cardiology</option>
+      <option value="pediatric-cardiothoracic-surgery"/>Pediatric Cardiothoracic Surgery</option>
+      <option value="pediatric-chiropractics"/>Pediatric Chiropractic</option>
+      <option value="pediatric-critical-care-medicine"/>Pediatric Critical Care Medicine</option>
+      <option value="pediatric-dentistry"/>Pediatric Dentistry</option>
+      <option value="pediatric-dermatology"/>Pediatric Dermatology</option>
+      <option value="pediatric-diagnostic-laboratory-immunology"/>Pediatric Diagnostic Laboratory Immunology</option>
+      <option value="pediatric-dietetics"/>Pediatric Dietetics</option>
+      <option value="pediatric-emergency-medicine"/>Pediatric Emergency Medicine</option>
+      <option value="pediatric-endocrinology"/>Pediatric Endocrinology</option>
+      <option value="pediatric-gastroenterology"/>Pediatric Gastroenterology</option>
+      <option value="pediatric-oncology-pediatric-hematology"/>Pediatric Hematology & Oncology</option>
+      <option value="pediatric-hospice-palliative-medicine"/>Pediatric Hospice & Palliative Medicine</option>
+      <option value="pediatric-infectious-disease-medicine"/>Pediatric Infectious Disease Medicine</option>
+      <option value="pediatric-medical-genetics"/>Pediatric Medical Genetics</option>
+      <option value="pediatric-medical-toxicology"/>Pediatric Medical Toxicology</option>
+      <option value="pediatric-medicine"/>Pediatric Medicine</option>
+      <option value="pediatric-nephrology"/>Pediatric Nephrology</option>
+      <option value="pediatric-neurodevelopmental-disabilities"/>Pediatric Neurodevelopmental Disabilities</option>
+      <option value="pediatric-neurology"/>Pediatric Neurology</option>
+      <option value="pediatric-neurosurgery"/>Pediatric Neurosurgery</option>
+      <option value="pediatric-advanced-practice-nursing"/>Pediatric Nursing</option>
+      <option value="pediatric-nursing"/>Pediatric Nursing (Nurse Practitioner)</option>
+      <option value="pediatric-occupational-therapy"/>Pediatric Occupational Therapy</option>
+      <option value="pediatric-oncology-pediatric-hematology"/>Pediatric Ophthalmology</option>
+      <option value="pediatric-optometry"/>Pediatric Optometry</option>
+      <option value="pediatric-orthopedic-surgery"/>Pediatric Orthopedic Surgery</option>
+      <option value="pediatric-otolaryngology"/>Pediatric Otolaryngology (Ear, Nose & Throat)</option>
+      <option value="pediatric-pathology"/>Pediatric Pathology</option>
+      <option value="pediatric-physical-therapy"/>Pediatric Physical Therapy</option>
+      <option value="pediatric-plastic-surgery"/>Pediatric Plastic Surgery</option>
+      <option value="pediatric-pulmonology"/>Pediatric Pulmonology</option>
+      <option value="pediatric-radiology"/>Pediatric Radiology</option>
+      <option value="pediatric-rheumatology"/>Pediatric Rheumatology</option>
+      <option value="pediatric-sleep-medicine"/>Pediatric Sleep Medicine</option>
+      <option value="pediatric-sports-medicine"/>Pediatric Sports Medicine</option>
+      <option value="pediatric-surgery"/>Pediatric Surgery</option>
+      <option value="pediatric-transplant-hepatology"/>Pediatric Transplant Hepatology</option>
+      <option value="pediatric-urology"/>Pediatric Urology</option>
+      <option value="pediatrics"/>Pediatrics</option>
+      <option value="pediatric-rehabilitation"/>Pediatrics Physical Medicine & Rehabilitation     </option>
+      <option value="periodontal"/>Periodontics</option>
+      <option value="personal-care-attendance"/>Personal Care Attendance</option>
+      <option value="personal-emergency-response-attendant"/>Personal Emergency Response Attendance</option>
+      <option value="pharmaceutical-medicine"/>Pharmaceutical Medicine</option>
+      <option value="pharmacology"/>Pharmacology</option>
+      <option value="pharmacotherapy"/>Pharmacotherapy</option>
+      <option value="pharmacy"/>Pharmacy</option>
+      <option value="pharmacy-clinician-services"/>Pharmacy Clinician Services</option>
+      <option value="phlebology"/>Phlebology</option>
+      <option value="physical-medicine-rehabilitation"/>Physical Medicine & Rehabilitation</option>
+      <option value="physical-therapy"/>Physical Therapy</option>
+      <option value="physical-therapy-assistant"/>Physical Therapy (Physical Therapy Assistant)</option>
+      <option value="general-medicine-physicians-assistant"/>Physician Assistant (PA)</option>
+      <option value="podiatric-surgery"/>Podiatric Surgery</option>
+      <option value="podiatry"/>Podiatry</option>
+      <option value="podiatry-assistant"/>Podiatry (Podiatry Assistant)</option>
+      <option value="poetry-therapy"/>Poetry Therapy</option>
+      <option value="licensed-practical-nursing"/>Practical Nursing (Licensed Practical Nurse)</option>
+      <option value="preventive-medicine"/>Preventive Medicine</option>
+      <option value="prosthetics"/>Prosthetics</option>
+      <option value="prosthetics-orthotics"/>Prosthetics & Orthotics</option>
+      <option value="psychiatry"/>Psychiatry</option>
+      <option value="psychosomatic-medicine"/>Psychosomatic Medicine</option>
+      <option value="psychotherapy"/>Psychotherapy</option>
+      <option value="public-health"/>Public Health & General Preventive Medicine</option>
+      <option value="pulmonology"/>Pulmonary Disease</option>
+      <option value="pulmonary-function-technology"/>Pulmonary Function Technology</option>
+      <option value="radiation-oncology"/>Radiation Oncology</option>
+      <option value="radioisotopic-pathology"/>Radioisotopic Pathology</option>
+      <option value="radiologic-technology"/>Radiologic Technology</option>
+      <option value="radiology"/>Radiology</option>
+      <option value="radiology-assistant"/>Radiology (Practitioner Assistant)</option>
+      <option value="recreation-therapy"/>Recreation Therapy</option>
+      <option value="reflexology"/>Reflexology</option>
+      <option value="fertility-reproductive-endocrinology"/>Reproductive Endocrinology & Infertility</option>
+      <option value="research"/>Research</option>
+      <option value="respiratory-therapy"/>Respiratory Therapy</option>
+      <option value="rheumatology"/>Rheumatology</option>
+      <option value="rural-medicine"/>Rural Medicine</option>
+      <option value="sleep-medicine"/>Sleep Medicine</option>
+      <option value="social-work"/>Social Work</option>
+      <option value="spa-medicine"/>Spa Medicine</option>
+      <option value="speech-pathology-therapy"/>Speech-Language Pathology</option>
+      <option value="spinal-injury-medicine"/>Spinal Cord Injury Medicine</option>
+      <option value="sports-medicine"/>Sports Medicine</option>
+      <option value="selective-surgery-pathology"/>Surgical (Selective) Pathology</option>
+      <option value="surgical-assistance"/>Surgical Assistance</option>
+      <option value="oncology"/>Surgical Oncology</option>
+      <option value="transplant-hepatology"/>Transplant Hepatology</option>
+      <option value="transplant-surgery"/>Transplant Surgery</option>
+      <option value="hyperbaric-medicine-undersea-medicine"/>Undersea & Hyperbaric Medicine</option>
+      <option value="urgent-care-medicine"/>Urgent Care Medicine</option>
+      <option value="urology"/>Urology</option>
+      <option value="interventional-radiology-vascular-radiology"/>Vascular & Interventional Radiology</option>
+      <option value="vascular-medicine"/>Vascular Medicine</option>
+      <option value="vascular-neurology"/>Vascular Neurology</option>
+      <option value="vascular-surgery"/>Vascular Surgery</option>
+    </select>
+    <!-- Выбор штата -->
+    <select id="multiple-state" placeholder="Select state" multiple>
+      <option value="al-alabama"/>Alabama</option>
+      <option value="ak-alaska"/>Alaska</option>
+      <option value="az-arizona"/>Arizona</option>  
+      <option value="ar-arkansas"/>Arkansas</option>   
+      <option value="ca-california"/>California</option>   
+      <option value="co-colorado"/>Colorado</option>   
+      <option value="ct-connecticut"/>Connecticut</option>   
+      <option value="de-delaware"/>Delaware</option>   
+      <option value="dc-district-of-columbia"/>District of Columbia</option>   
+      <option value="fl-florida"/>Florida</option>   
+      <option value="ga-georgia"/>Georgia</option>   
+      <option value="hi-hawaii"/>Hawaii</option>   
+      <option value="id-idaho"/>Idaho</option>   
+      <option value="il-illinois"/>Illinois</option>   
+      <option value="in-indiana"/>Indiana</option>   
+      <option value="ia-iowa"/>Iowa</option>   
+      <option value="ks-kansas"/>Kansas</option>   
+      <option value="ky-kentucky"/>Kentucky</option>   
+      <option value="la-louisiana"/>Louisiana</option>   
+      <option value="me-maine"/>Maine</option>   
+      <option value="md-maryland"/>Maryland</option>   
+      <option value="ma-massachusetts"/>Massachusetts</option>   
+      <option value="mi-michigan"/>Michigan</option>   
+      <option value="mn-minnesota"/>Minnesota</option>   
+      <option value="ms-mississippi"/>Mississippi</option>   
+      <option value="mo-missouri"/>Missouri</option>   
+      <option value="mt-montana"/>Montana</option>   
+      <option value="ne-nebraska"/>Nebraska</option>   
+      <option value="nv-nevada"/>Nevada</option>   
+      <option value="nh-new-hampshire"/>New Hampshire</option>   
+      <option value="nj-new-jersey"/>New Jersey</option>   
+      <option value="nm-new-mexico"/>New Mexico</option>   
+      <option value="ny-new-york"/>New York</option>   
+      <option value="nc-north-carolina"/>North Carolina</option>   
+      <option value="nd-north-dakota"/>North Dakota</option>   
+      <option value="oh-ohio"/>Ohio</option>   
+      <option value="ok-oklahoma"/>Oklahoma</option>     
+      <option value="or-oregon"/>Oregon</option>   
+      <option value="pa-pennsylvania"/>Pennsylvania</option>
+      <option value="pr-puerto-rico"/>Puerto Rico</option>   
+      <option value="ri-rhode-island"/>Rhode Island</option>   
+      <option value="sc-south-carolina"/>South Carolina</option>   
+      <option value="sd-south-dakota"/>South Dakota</option>   
+      <option value="tn-tennessee"/>Tennessee</option>   
+      <option value="tx-texas"/>Texas</option>   
+      <option value="ut-utah"/>Utah</option>   
+      <option value="vt-vermont"/>Vermont</option>   
+      <option value="va-virginia"/>Virginia</option>   
+      <option value="wa-washington"/>Washington</option>   
+      <option value="wv-west-virginia"/>West Virginia</option>   
+      <option value="mi-wisconsin"/>Wisconsin</option>   
+      <option value="wy-wyoming"/>Wyoming</option>   
+    </select>
+    <!-- Ввод города и email -->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display</button>
+        <div class="dropdown-menu">
+          <ul id="list" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+      <input type="text" class="form-control mr-2" placeholder="Input city and press Enter" id="city">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display</button>
+        <div class="dropdown-menu">
+          <ul id="list2" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+      <input type="text" class="form-control" placeholder="Input email and press Enter" id="email">
+    </div>
+  </div>
+</div>
+<!-- Кнопки -->
+<div class="input-group justify-content-center">
+  <button id="scrape" class="btn btn-success mr-2">Scrape</button>
+  <a href="/remove/healthgrades" class="btn btn-success mr-2">Remove</a>
+  <a href="/download/healthgrades" class="btn btn-primary">Download</a>
+</div>
+<!-- Сообщение о работе подпроцесса -->
+<p id="status" class="text-center"></p>
+<!-- Отображение пагинации -->
+{% if pagination %}
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+  {{ pagination.links }}
+  </div>
+</div>
+{% endif %}
+<!-- Рендеринг карточек профилей -->
+{% if cards %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card mt-4">
+        <div class="card-body">
+          {% for card in cards %}
+            <div class="card mt-3">
+              <div class="card-header">
+                <div class="row">
+                  {% if card.First_and_Last_Name %}
+                    <div class="col"><strong>{{card.First_and_Last_Name}}</strong></div>
+                  {% endif %}
+                  <!-- Кнопки -->
+                  <div class="col text-right">
+                    <a href="/profile/healthgrades/{{card._id}}" class="btn btn-outline-primary btn">View Profile</a>
+                    <a href="/delete/healthgrades/{{card._id}}" class="btn btn-danger">Delete</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                {% if card.Biography %}
+                  {% for i in card.Biography[:1] %}
+                    <p >{{i}}</p>
+                  {% endfor %}
+                {% endif %} 
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+    {{ pagination.links }}
+  </div>
+</div>
+{% else %}
+  <h5 class="font-weight-bold text-dark text-center">No data found</h5>
+{% endif %}
+<script type="text/javascript">
+  /*Выбор специальности*/
+  $(document).ready(function(){
+    var multipleCancelButton = new Choices('#multiple-specialty', {
+    removeItemButton: true,
+    searchResultLimit:5
+    });
+    /*Выбор штата*/
+    var multipleCancelButton = new Choices('#multiple-state', {
+    removeItemButton: true,
+    searchResultLimit:5
+    });
+  });
+  /*По нажатию кнопки Scrape*/
+  $('#scrape').on('click', () => {
+    /*Кнока неактивна, выводится сообщение о работе подпроцесса*/
+    $('#scrape').attr('disabled', 'disabled');
+    $('#status').text('Scraper is working...')
+    /*Запись в список спициальностей*/
+    var selected = $('#multiple-specialty option:selected');
+    var specialty = [];
+    $(selected).each(function(index, brand){
+        specialty.push($(this).val());
+    });
+    /*Запись в список штатов*/
+    var selected = $('#multiple-state option:selected');
+    var state = [];
+    $(selected).each(function(index, brand){
+        state.push($(this).val());
+    });
+    /*Отправка аргументов на сервер*/
+    $.post('/healthgrades', {'specialty': specialty, 'state': state, 'city': city, 'email': email}, (res) => {
+      /*Кнока неактивна, выводится сообщение о работе подпроцесса*/
+      $('#scrape').removeAttr('disabled');
+      $('#status').text('') 
+      location.reload();
+    });
+  });
+  /*Запись в список городов*/
+  let city = [];
+  $('#city').keyup(function(e) {
+    if (e.keyCode == 13) {
+      let $this = $(this);
+      $('#list').append('<li class="list-group-item">\
+              ' + $this.val() + '\
+                <button class="btn btn-danger btn-sm">Delete</button>\
+       </li>');
+     city.push($this.val().toLowerCase().replace(/ /g, '-'));
+     $('#city').val('');
+    }
+  });
+  /*удаление элементов списка*/
+  $('#list').on('click','button.btn', function(){
+    var $li = $(this).closest('li');
+    city.splice($li.index(), 1);
+    $li.remove();
+  });
+  /*Запись в список email*/
+  let email = [];
+  $('#email').keyup(function(e) {
+    if (e.keyCode == 13) {
+      let $this = $(this);
+      $('#list2').append('<li class="list-group-item">\
+              ' + $this.val() + '\
+                <button class="btn btn-danger btn-sm">Delete</button>\
+       </li>');
+     email.push($this.val());
+     $('#email').val('');
+    }
+  });
+  /*удаление элементов списка*/
+  $('#list2').on('click','button.btn', function(){
+    var $li = $(this).closest('li');
+    email.splice($li.index(), 1);
+    $li.remove();
+  });
+</script>
+{% endblock %}

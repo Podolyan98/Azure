@@ -1,0 +1,631 @@
+{% extends 'layout.html' %}
+{% block title %}
+{% if card.Company_Name %}
+  {% for i in card.Company_Name %}
+    {{i}}
+  {% endfor %}
+{% endif %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-6 pl-xl-4">  
+        <button class="btn btn-secondary" onclick="history.back()">Back</button>
+        <a href="/delete/gaswork/{{card._id}}" class="btn btn-danger">Delete</a>
+        <div class="mb-2">
+          <a href={{card.url}} class="h5 font-weight-bold text-dark">CONTACT INFORMATION</a>
+          <ul class="list-unstyled">
+            {% if card.Company_Name %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Company Name: 
+                {% for i in card.Company_Name %}
+                  <label class="media-body">{{i}}</label>
+                {% endfor %}
+                </span>
+              </li>
+            {% endif %}        
+            {% if card.Anesthesiologists_Name %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Anesthesiologists Name: 
+                {% for i in card.Anesthesiologists_Name %}
+                  <label class="media-body">{{i}}</label>
+                {% endfor %}
+                </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Name %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Contact Name: 
+                <label class="media-body">{{card.Contact_Name}}</label>
+                </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Street_Address_1 %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact Street Address 1: 
+              {% for i in card.Contact_Street_Address_1 %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Street_Address_2 %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact Street Address 2: 
+              {% for i in card.Contact_Street_Address_2 %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_City %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact City: 
+              <label class="media-body">{{card.Contact_City}}</label>
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_State %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact State: 
+              {% for i in card.Contact_State %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Zip_Code %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact Zip Code: 
+              {% for i in card.Contact_Zip_Code %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Country %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact Country: 
+              {% for i in card.Contact_Country %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Voice_Phone %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact Voice Phone: 
+              {% for i in card.Contact_Voice_Phone %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Fax %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact Fax: 
+              {% for i in card.Contact_Fax %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Contact_Web_Site %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Contact Web Site: 
+              {% for i in card.Contact_Web_Site %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+            {% if card.Preferred_Contact_Method %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Preferred Contact Method: 
+              {% for i in card.Preferred_Contact_Method %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+              </span>
+              </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">POSITION DESIRED</h5>
+          <ul class="list-unstyled">
+            {% if card.fq485 %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Brief Description of Candidate: 
+              <label class="media-body">{{card.fq485}}</label>
+              </span>
+              </li>
+            {% endif %}
+            {% if card.fq419 %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">States where clinician wants to work: 
+              <label class="media-body">
+              {% for i in card.fq419 %}
+                {{i}}
+              {% endfor %}
+              </label>
+              </span>
+              </li>
+            {% endif %}
+            {% if card.fq411 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Check any Position Durations you would consider: 
+              <label class="media-body">
+              {% for i in card.fq411 %}
+                {{i}}
+              {% endfor %}
+              </label>
+            </span>
+              </li>
+            {% endif %}
+            {% if card.fq470 %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">Date Available: 
+              <label class="media-body">{{card.fq470}}</label>
+              </span>
+              </li>
+            {% endif %}
+            {% if card.fq426 %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">If Locum Tenens, to what end date can Anesthesiologist work?  
+              <label class="media-body">{{card.fq426}}</label>
+              </span>
+              </li>
+            {% endif %}
+            {% if card.fq374 %}
+              <li class="media">
+              <span class="w-35 text-black font-weight-normal">If Locum Tenens, what is the anesthesiologist's minimum daily charge? 
+              <label class="media-body">{{card.fq374}}</label>
+              </span>
+              </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">QUALIFICATIONS</h5>
+          <ul class="list-unstyled">
+            {% if card.fq442 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Check which Life Support cards you currently have: 
+              {% for i in card.fq442 %}
+                 <label class="media-body">{{i}}</label>
+              {% endfor %}
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">POSITION DESIRED</h5>
+          <ul class="list-unstyled">
+            {% if card.fq211 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does Anesthesiologist want a Director of Department position? 
+              <label class="media-body">{{card.fq211}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq212 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does Anesthesiologist want a job that leads to partnership? 
+              <label class="media-body">{{card.fq212}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq362 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does Anesthesiologist have ABA Certification in Pain Management? 
+              <label class="media-body">{{card.fq362}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq209 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does Anesthesiologist have ABA Certification in Critical Care Management? 
+              <label class="media-body">{{card.fq209}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq385 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">How often Does the Anesthesiologist want to be on call? 
+              <label class="media-body">{{card.fq385}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq168 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want to have the Day off after call? 
+              <label class="media-body">{{card.fq168}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq164 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want to be personally providing anesthesia care, i.e. One anesthesiologist to One patient? 
+              <label class="media-body">{{card.fq164}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq169 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want to be Medically Directing CRNAs or Anesthesiologist's Assistants (AAs)? 
+              <label class="media-body">{{card.fq169}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq387 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">What percentage of the time does the Anesthesiologist want to be personally providing anesthesia care, (doing own cases) compared to Medically Directing a CRNA or AA? 
+                <label class="media-body">{{card.fq387}}</label>
+              
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq386 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">What would be the Anesthesiologist's preference regarding CRNAs in a job situation doing Operative Cases that are not medically directed by an anesthesiologist? 
+                <label class="media-body">{{card.fq386}}</label>
+              
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq376 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">What would be the Anesthesiologist's preference regarding CRNAs in a job situation doing Labor Epidurals that are not Medically directed by an anesthesiologist? 
+                <label class="media-body">{{card.fq376}}</label>
+              
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq171 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want a job where there is an Approved Physician Anesthesia residency program? 
+              <label class="media-body">{{card.fq171}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq166 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want a job where there is Anesthesia training for Physician house staff?
+              <label class="media-body">{{card.fq166}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq167 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want a job where there is a CRNA training program? 
+              <label class="media-body">{{card.fq167}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq165 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want a job where there is an Anesthesiologist's Assistant training program? 
+              <label class="media-body">{{card.fq165}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq354 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">What practice setting does the Anesthesiologist have Experience? 
+              <label class="media-body">{{card.fq354}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq396 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">What size hospital does the Anesthesiologist want to work in? (How many Licensed beds does the hospital have) 
+              <label class="media-body">{{card.fq396}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq390 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">City Population desired 
+              <label class="media-body">{{card.fq390}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          {% if card.fq210 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Is Anesthesiologist a foreign national needing a sponsor for Nonimmigrant Visa (H1B; J1; 01)? 
+              <label class="media-body">{{card.fq210}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">SALARY AND INCOME INFORMATION</h5>
+          <ul class="list-unstyled">
+            {% if card.fq399 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Estimated Minimum Annual Income Desired 
+              <label class="media-body">{{card.fq399}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq494 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Employment Status 
+              <label class="media-body">{{card.fq494}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq214 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want a Salary income from anesthesia group? 
+              <label class="media-body">{{card.fq214}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq213 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want a Percentage income from anesthesia group? 
+              <label class="media-body">{{card.fq213}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq218 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want an Income from Fee-for-service individual practice? 
+              <label class="media-body">{{card.fq218}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq172 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want a Salary from Hospital as an employee? 
+              <label class="media-body">{{card.fq172}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq170 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does the Anesthesiologist want Other income as a Hospital employee? 
+              <label class="media-body">{{card.fq170}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">QUALIFICATIONS</h5>
+          <ul class="list-unstyled">
+            {% if card.fq405 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Double Click to select each state where Anesthesiologist is licensed: 
+              <label class="media-body">{{card.fq405}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq176 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">States where Anesthesiologist is licensed: 
+              <label class="media-body">{{card.fq176}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq11  %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Anesthesiologist's Degree: 
+              <label class="media-body">{{card.fq11 }}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq15  %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Anesthesiologist's Medical School: 
+              <label class="media-body">{{card.fq15}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq375 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Anesthesiologist's Residency: 
+              <label class="media-body">{{card.fq375}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq120 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Is Anesthesiologist Board Certified by the American Board of Anesthesiology (ABA)?
+              <label class="media-body">{{card.fq120}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq161 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Year of Primary Certification
+              <label class="media-body">{{card.fq161}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq119 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Has Anesthesiologist obtained ABA Recertification?
+              <label class="media-body">{{card.fq119}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq127 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">List year(s) of ABA Recertification
+              <label class="media-body">{{card.fq127}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq181 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Has Anesthesiologist completed a Subspecialty Fellowship?
+              <label class="media-body">{{card.fq181}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq162 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Does Anesthesiologist have Subspecialty Expertise but has not completed a Fellowship?
+              <label class="media-body">{{card.fq162}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq406 %}
+            <li class="media">
+            <span class="w-35 text-black font-weight-normal">If Anesthesiologist has subspecialty expertise or has completed a Fellowship, which one?
+            {% for i in card.fq406 %}
+              <label class="media-body">{{i}}</label>
+            {% endfor %}
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq513 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Is Anesthesiologist a New Graduate?
+              <label class="media-body">{{card.fq513}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">CURRENT EMPLOYER</h5>
+          <ul class="list-unstyled">
+            {% if card.fq34 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Current Employer Name: 
+              <label class="media-body">{{card.fq34}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq130 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Current Employer Address/City/State/Zip: 
+              {% for i in card.fq130 %}
+              <label class="media-body">{{i}}</label>
+              {% endfor %}
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq126 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Anesthesiologist's reason for seeking a job change?: 
+              <label class="media-body">{{card.fq126}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">OTHER</h5>
+          <ul class="list-unstyled">
+            {% if card.fq13 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Anesthesiologist's Interests : 
+              <label class="media-body">{{card.fq13}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq67 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Name of a reference person: 
+              <label class="media-body">{{card.fq67}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq97 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Reference's email: 
+              <label class="media-body">{{card.fq97}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq98 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Reference's phone: 
+              <label class="media-body">{{card.fq98}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.fq443 %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Comment or paste the text of your CV here, if desired: 
+              <label class="media-body">{{card.fq443}}</label>
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+          <h5 class="font-weight-bold text-dark">POST INFORMATION</h5>
+          <ul class="list-unstyled">
+            {% if card.Date_Posted %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Date Posted: 
+              <label class="media-body">{{card.Date_Posted}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.Last_Updated %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Last Updated: 
+              <label class="media-body">{{card.Last_Updated}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.Posted_By %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Posted By: 
+              <label class="media-body">{{card.Posted_By}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.Reference %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Reference #: 
+              <label class="media-body">{{card.Reference}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.Priority %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Priority: 
+              <label class="media-body">{{card.Priority}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.Section %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Section: 
+              <label class="media-body">{{card.Section}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.Form_Type %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">Form Type: 
+              <label class="media-body">{{card.Form_Type}}</label>
+            </span>
+            </li>
+            {% endif %}
+            {% if card.User_Type %}
+            <li class="media">
+              <span class="w-35 text-black font-weight-normal">User Type: 
+              {% for i in card.User_Type %}
+                <label class="media-body">{{i}}</label>
+              {% endfor %}
+            </span>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

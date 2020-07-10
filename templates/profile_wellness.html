@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+{% block title %}
+{% if card.First_and_Last_Name %}
+  {{card.First_and_Last_Name}} 
+{% endif %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="mb-2">
+          {% if card.Image != "//d2x0atfi55wmqs.cloudfront.net/content/images/spacer.gif" %}
+            <img class="img-thumbnail w-100" src={{card.Image}} alt="Not Found">
+          {% else %}
+            <img class="img-thumbnail w-100" src="http://cdn.onlinewebfonts.com/svg/img_491436.png" alt="Not Found">
+          {% endif %}
+        </div>
+        <div class="mb-2 d-flex">
+          {% if card.First_and_Last_Name %}
+            <a href={{card.url}} class="h4 font-weight-bold text-dark">{{card.First_and_Last_Name}}</a>
+          {% endif %}
+        </div>
+        <div class="d-flex justify-content-between"> 
+          <button class="btn btn-secondary" onclick="history.back()">Back</button>
+          <div class="text-right">
+            <a href="/delete/wellness/{{card._id}}" class="btn btn-danger">Delete</a>
+          </div>
+        </div> 
+        <div class="mb-2">
+          <ul class="list-unstyled">
+            {% if card.Primary_Specialty %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Primary Specialty: </span>
+                <label class="media-body">{{card.Primary_Specialty}}</label>
+              </li>
+            {% endif %}
+            {% if card.Practice %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Practice: </span>
+                <label class="media-body">{{card.Practice}}</label>
+              </li>
+            {% endif %}
+            {% if card.Education %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Education: </span>
+                {% for i in card.Education %}
+                  <label class="media-body">{{i}}</label>
+                {% endfor %}
+              </li>
+            {% endif %}
+            {% if card.Training %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Training: </span>
+                {% for i in card.Training %}
+                  <label class="media-body">{{i}}</label>
+                {% endfor %}
+              </li>
+            {% endif %}
+            {% if card.Consumer_Feedback %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Consumer Feedback: </span>
+                <label class="media-body">{{card.Consumer_Feedback}}</label>
+              </li>
+            {% endif %}
+            {% if card.Phone %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Phone: </span>
+                <label class="media-body">{{card.Phone}}</label>
+              </li>
+            {% endif %}
+            {% if card.Address %}
+              <li class="media">
+                <span class="w-35 text-black font-weight-normal">Address: </span>
+                <label class="media-body">{{card.Address}}</label>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-6 pl-xl-4">
+        {% if card.About %}
+          <h3 class="font-weight-normal">About</h3>
+          {% for i in card.About %}
+            <p >{{i}}</p>
+          {% endfor %}
+        {% endif %}
+        {% if card.Services %}
+          <h3 class="font-weight-normal">Services</h3>
+          {% for i in card.Services %}
+            <p >{{i}}</p>
+          {% endfor %}
+        {% endif %}
+        {% if card.Reviews %}
+          <h3 class="font-weight-normal">Reviews</h3>
+          {% for i in card.Reviews %}
+            <p>{{i}}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,391 @@
+{% extends "layout.html" %}
+{% block title %} Wellness {% endblock %}
+{% block body %}
+<style type="text/css">
+  .choices__list.choices__list--dropdown.is-active {
+  z-index: 4;
+}
+</style>
+<!-- Выбор специальности -->
+<div class="row d-flex justify-content-center mt-100">
+  <div class="col-md-10"> 
+    <select id="multiple-specialty" placeholder="Select specialty" multiple>
+      <option value="Acupuncturist"/>Acupuncturist</option>
+      <option value="Holistic Care"/>Holistic Care</option>
+      <option value="Naturopathic Doctor"/>Naturopathic Doctor</option>
+      <option value="Chiropractic Independent Medical Examiner"/>Chiropractic Independent Medical Examiner</option>
+      <option value="Chiropractic Internist"/>Chiropractic Internist</option>
+      <option value="Chiropractic Neurologist"/>Chiropractic Neurologist</option>
+      <option value="Chiropractic Nutritionist"/>Chiropractic Nutritionist</option>
+      <option value="Chiropractic Occupational Health Specialist"/>Chiropractic Occupational Health Specialist</option>
+      <option value="Chiropractic Orthopedist"/>Chiropractic Orthopedist</option>
+      <option value="Chiropractic Radiologist"/>Chiropractic Radiologist</option>
+      <option value="Chiropractic Rehabilitation Specialist"/>Chiropractic Rehabilitation Specialist</option>
+      <option value="Chiropractic Sports Physician"/>Chiropractic Sports Physician</option>
+      <option value="Chiropractic Thermography Specialist"/>Chiropractic Thermography Specialist</option>
+      <option value="Pediatric Chiropractor"/>Pediatric Chiropractor</option>
+      <option value="Cosmetic Dermatologist"/>Cosmetic Dermatologist</option>
+      <option value="Cosmetic Surgeon"/>Cosmetic Surgeon</option>
+      <option value="Hair Loss Treatment"/>Hair Loss Treatment</option>
+      <option value="Plastic Surgeon"/>Plastic Surgeon</option>
+      <option value="Addiction Counselor"/>Addiction Counselor</option>
+      <option value="Bereavement Services"/>Bereavement Services</option>
+      <option value="Career Counseling"/>Career Counseling</option>
+      <option value="Child and Youth Counseling"/>Child and Youth Counseling</option>
+      <option value="Clinical Social Worker"/>Clinical Social Worker</option>
+      <option value="Counselor"/>Counselor</option>
+      <option value="Credit and Debt Counseling Services"/>Credit and Debt Counseling Services</option>
+      <option value="Domestic Violence Counseling"/>Domestic Violence Counseling</option>
+      <option value="Eating Disorders Counseling"/>Eating Disorders Counseling</option>
+      <option value="Financial Counselor"/>Financial Counselor</option>
+      <option value="Learning Disability Counseling"/>Learning Disability Counseling</option>
+      <option value="Marriage & Family Therapist"/>Marriage & Family Therapist</option>
+      <option value="Pet Loss Counseling"/>Pet Loss Counseling</option>
+      <option value="Senior Citizen Counseling"/>Senior Citizen Counseling</option>
+      <option value="Sexual Abuse Counseling"/>Sexual Abuse Counseling</option>
+      <option value="Social Security Counselors"/>Social Security Counselors</option>
+      <option value="Spiritual Counseling"/>Spiritual Counseling</option>
+      <option value="Stress Management Specialists"/>Stress Management Specialists</option>
+      <option value="Work Counseling"/>Work Counseling</option>
+      <option value="Dentist"/>Dentist</option>
+      <option value="Oral Surgeon"/>Oral Surgeon</option>
+      <option value="Orthodontist"/>Orthodontist</option>
+      <option value="Dietitian - Nutritionist"/>Dietitian - Nutritionist</option>
+      <option value="Anesthesiologist"/>Anesthesiologist</option>
+      <option value="Asthma - Allergy Specialists"/>Asthma - Allergy Specialists</option>
+      <option value="Audiologist"/>Audiologist</option>
+      <option value="Cardiac Electrophysiologist"/>Cardiac Electrophysiologist</option>
+      <option value="Cardiologist"/>Cardiologist</option>
+      <option value="Colorectal Doctor"/>Colorectal Doctor</option>
+      <option value="Critical Care Surgeon"/>Critical Care Surgeon</option>
+      <option value="Dermatologist"/>Dermatologist</option>
+      <option value="Diabetes Specialist"/>Diabetes Specialist</option>
+      <option value="Endocrinologist"/>Endocrinologist</option>
+      <option value="ENT"/>ENT</option>
+      <option value="ER Doctor"/>ER Doctor</option>
+      <option value="Family Doctor"/>Family Doctor</option>
+      <option value="Fibromyalgia Doctor"/>Fibromyalgia Doctor</option>
+      <option value="Gastroenterologist"/>Gastroenterologist</option>
+      <option value="General Practitioner"/>General Practitioner</option>
+      <option value="Geneticist"/>Geneticist</option>
+      <option value="Geriatrician"/>Geriatrician</option>
+      <option value="Hematologist"/>Hematologist</option>
+      <option value="Immunologist"/>Immunologist</option>
+      <option value="Infectious Disease Specialist"/>Infectious Disease Specialist</option>
+      <option value="Integrative Doctor"/>Integrative Doctor</option>
+      <option value="Intensivist"/>Intensivist</option>
+      <option value="Internist"/>Internist</option>
+      <option value="Marijuana Doctor"/>Marijuana Doctor</option>
+      <option value="Neonatologist"/>Neonatologist</option>
+      <option value="Nephrologist"/>Nephrologist</option>
+      <option value="Neurologist"/>Neurologist</option>
+      <option value="Neurosurgeon"/>Neurosurgeon</option>
+      <option value="Nurse Midwife"/>Nurse Midwife</option>
+      <option value="Nurse Practitioner"/>Nurse Practitioner</option>
+      <option value="Occupational Medicine Specialist"/>Occupational Medicine Specialist</option>
+      <option value="Oncological Surgeon"/>Oncological Surgeon</option>
+      <option value="Oncologist"/>Oncologist</option>
+      <option value="Orthopedic Surgeon"/>Orthopedic Surgeon</option>
+      <option value="Osteopathic Doctor"/>Osteopathic Doctor</option>
+      <option value="Pain Management Specialist"/>Pain Management Specialist</option>
+      <option value="Pathologist"/>Pathologist</option>
+      <option value="Pediatric Cardiologist"/>Pediatric Cardiologist</option>
+      <option value="Pediatric Nephrologist"/>Pediatric Nephrologist</option>
+      <option value="Pediatric Neurologist"/>Pediatric Neurologist</option>
+      <option value="Pediatric Oncologist"/>Pediatric Oncologist</option>
+      <option value="Pediatric Plastic Surgeon"/>Pediatric Plastic Surgeon</option>
+      <option value="Pediatric Pulmonologist"/>Pediatric Pulmonologist</option>
+      <option value="Pediatric Radiologist"/>Pediatric Radiologist</option>
+      <option value="Pediatric Rheumatologist"/>Pediatric Rheumatologist</option>
+      <option value="Pediatric Surgeon"/>Pediatric Surgeon</option>
+      <option value="Pediatric Urologist"/>Pediatric Urologist</option>
+      <option value="Pediatrician"/>Pediatrician</option>
+      <option value="Physiatrist"/>Physiatrist</option>
+      <option value="Preventive Medicine Specialist"/>Preventive Medicine Specialist</option>
+      <option value="Proctologist"/>Proctologist</option>
+      <option value="Pulmonologist"/>Pulmonologist</option>
+      <option value="Radiation Oncologist"/>Radiation Oncologist</option>
+      <option value="Radiologist"/>Radiologist</option>
+      <option value="Registered Nurse"/>Registered Nurse</option>
+      <option value="Reproductive Endocrinologist"/>Reproductive Endocrinologist</option>
+      <option value="Rheumatologist"/>Rheumatologist</option>
+      <option value="Speech Pathologist"/>Speech Pathologist</option>
+      <option value="Sports Medicine Specialist"/>Sports Medicine Specialist</option>
+      <option value="Surgeon"/>Surgeon</option>
+      <option value="Thoracic Surgeon"/>Thoracic Surgeon</option>
+      <option value="Urologist"/>Urologist</option>
+      <option value="Vascular Surgeon"/>Vascular Surgeon</option>
+      <option value="Ophthalmologist"/>Ophthalmologist</option>
+      <option value="Optometrist"/>Optometrist</option>
+      <option value="Pediatric Ophthalmologist"/>Pediatric Ophthalmologist</option>
+      <option value="Health Club"/>Health Club</option>
+      <option value="Personal Trainer"/>Personal Trainer</option>
+      <option value="Physical Therapist"/>Physical Therapist</option>
+      <option value="Rehabilitation Specialist"/>Rehabilitation Specialist</option>
+      <option value="Yoga Teacher"/>Yoga Teacher</option>
+      <option value="Hospital"/>Hospital</option>
+      <option value="Urgent Care Hospital"/>Urgent Care Hospital</option>
+      <option value="Health Insurance"/>Health Insurance</option>
+      <option value="Life Insurance"/>Life Insurance</option>
+      <option value="Massage Therapist"/>Massage Therapist</option>
+      <option value="Online Psychiatrists"/>Online Psychiatrists</option>
+      <option value="Pre-Licensed Professional"/>Pre-Licensed Professional</option>
+      <option value="Psychiatric Nurse"/>Psychiatric Nurse</option>
+      <option value="Psychiatrist"/>Psychiatrist</option>
+      <option value="Psychoanalyst"/>Psychoanalyst</option>
+      <option value="Psychologist"/>Psychologist</option>
+      <option value="OBGYN"/>OBGYN</option>
+      <option value="Bariatric OBGYN"/>Bariatric OBGYN</option>
+      <option value="Critical Care OBGYN"/>Critical Care OBGYN</option>
+      <option value="Fertility Doctor"/>Fertility Doctor</option>
+      <option value="Gynecologic Oncologist"/>Gynecologic Oncologist</option>
+      <option value="Gynecologist"/>Gynecologist</option>
+      <option value="Hospice and Palliative OBGYN"/>Hospice and Palliative OBGYN</option>
+      <option value="Maternal and Fetal OBGYN"/>Maternal and Fetal OBGYN</option>
+      <option value="OBGYN Reconstructive Surgeon"/>OBGYN Reconstructive Surgeon</option>
+      <option value="Obstetrician"/>Obstetrician</option>
+      <option value="Animal Hospital"/>Animal Hospital</option>
+      <option value="Veterinarians"/>Veterinarians</option>
+      <option value="Pharmacy"/>Pharmacy</option>
+      <option value="Foot and Ankle Surgeon"/>Foot and Ankle Surgeon</option>
+      <option value="Foot Surgeon"/>Foot Surgeon</option>
+      <option value="Podiatric Radiologist"/>Podiatric Radiologist</option>
+      <option value="Podiatric Sports Physician"/>Podiatric Sports Physician</option>
+      <option value="General Regenerative Medicine"/>General Regenerative Medicine</option>
+      <option value="Regenerative Anti-Aging and Aesthetics"/>Regenerative Anti-Aging and Aesthetics</option>
+      <option value="Regenerative Orthopedics"/>Regenerative Orthopedics</option>
+      <option value="Regenerative Sports Medicine"/>Regenerative Sports Medicine</option>
+      <option value="Athletic and Fitness Supplies"/>Athletic and Fitness Supplies</option>
+      <option value="Health and Diet Food"/>Health and Diet Food</option>
+      <option value="Medical Supplies"/>Medical Supplies</option>
+      <option value="Salon"/>Salon</option>
+      <option value="Alzheimer's Care"/>Alzheimer's Care</option>
+      <option value="Assisted Living Homes"/>Assisted Living Homes</option>
+      <option value="Continuing Care"/>Continuing Care</option>
+      <option value="Home Care"/>Home Care</option>
+      <option value="Hospice"/>Hospice</option>
+      <option value="Independent Living"/>Independent Living</option>
+      <option value="Nursing Home"/>Nursing Home</option>
+      <option value="Respite Care"/>Respite Care</option>
+      <option value="Retirement Communities"/>Retirement Communities</option>
+      <option value="Retirement Living"/>Retirement Living</option>
+      <option value="Retirement Placement Services"/>Retirement Placement Services</option>
+      <option value="Retirement Services"/>Retirement Services</option>
+      <option value="Day Spa"/>Day Spa</option>
+      <option value="General Spa"/>General Spa</option>
+      <option value="Massage Spa"/>Massage Spa</option>
+      <option value="Med Spa"/>Med Spa</option>
+      <option value="Weight Loss - Bariatric"/>Weight Loss - Bariatric</option>
+      <option value="Weight Loss Center"/>Weight Loss Center</option>
+      <option value="Weight Loss Consultant"/>Weight Loss Consultant</option>
+    </select>
+    <!-- Выбор штата -->
+    <select id="multiple-state" placeholder="Select state" multiple>
+      <option value="al"/>Alabama</option>
+      <option value="ak"/>Alaska</option>
+      <option value="az"/>Arizona</option>  
+      <option value="ar"/>Arkansas</option>   
+      <option value="ca"/>California</option>   
+      <option value="co"/>Colorado</option>   
+      <option value="ct"/>Connecticut</option>   
+      <option value="de"/>Delaware</option>   
+      <option value="dc"/>District of Columbia</option>   
+      <option value="fl"/>Florida</option>   
+      <option value="ga"/>Georgia</option>   
+      <option value="hi"/>Hawaii</option>   
+      <option value="id"/>Idaho</option>   
+      <option value="il"/>Illinois</option>   
+      <option value="in"/>Indiana</option>   
+      <option value="ia"/>Iowa</option>   
+      <option value="ks"/>Kansas</option>   
+      <option value="ky"/>Kentucky</option>   
+      <option value="la"/>Louisiana</option>   
+      <option value="me"/>Maine</option>   
+      <option value="md"/>Maryland</option>   
+      <option value="ma"/>Massachusetts</option>   
+      <option value="mi"/>Michigan</option>   
+      <option value="mn"/>Minnesota</option>   
+      <option value="ms"/>Mississippi</option>   
+      <option value="mo"/>Missouri</option>   
+      <option value="mt"/>Montana</option>   
+      <option value="ne"/>Nebraska</option>   
+      <option value="nv"/>Nevada</option>   
+      <option value="nh"/>New Hampshire</option>   
+      <option value="nj"/>New Jersey</option>   
+      <option value="nm"/>New Mexico</option>   
+      <option value="ny"/>New York</option>   
+      <option value="nc"/>North Carolina</option>   
+      <option value="nd"/>North Dakota</option>   
+      <option value="oh"/>Ohio</option>   
+      <option value="ok"/>Oklahoma</option>     
+      <option value="or"/>Oregon</option>   
+      <option value="pa"/>Pennsylvania</option>   
+      <option value="ri"/>Rhode Island</option>   
+      <option value="sc"/>South Carolina</option>   
+      <option value="sd"/>South Dakota</option>   
+      <option value="tn"/>Tennessee</option>   
+      <option value="tx"/>Texas</option>   
+      <option value="ut"/>Utah</option>   
+      <option value="vt"/>Vermont</option>   
+      <option value="va"/>Virginia</option>   
+      <option value="wa"/>Washington</option>   
+      <option value="wv"/>West Virginia</option>   
+      <option value="mi"/>Wisconsin</option>   
+      <option value="wy"/>Wyoming</option>   
+    </select>
+    <!-- Ввод города и email -->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display</button>
+        <div class="dropdown-menu">
+          <ul id="list" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+      <input type="text" class="form-control mr-2" placeholder="Input city and press Enter" id="city">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display</button>
+        <div class="dropdown-menu">
+          <ul id="list2" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+      <input type="text" class="form-control" placeholder="Input email and press Enter" id="email">
+    </div>
+  </div>
+</div>
+<!-- Кнопки -->
+<div class="input-group justify-content-center">
+  <button id="scrape" class="btn btn-success mr-2">Scrape</button>
+  <a href="/remove/wellness" class="btn btn-success mr-2">Remove</a>
+  <a href="/download/wellness" class="btn btn-primary">Download</a>
+</div>
+<!-- Сообщение о работе подпроцесса -->
+<p id="status" class="text-center"></p>
+<!-- Отображение пагинации -->
+{% if pagination %}
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+  {{ pagination.links }}
+  </div>
+</div>
+{% endif %}
+<!-- Рендеринг карточек профилей -->
+{% if cards %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card mt-4">
+        <div class="card-body">
+          {% for card in cards %}
+            <div class="card mt-3">
+              <div class="card-header">
+                <div class="row">
+                  {% if card.First_and_Last_Name %}
+                    <div class="col"><strong>{{card.First_and_Last_Name}}</strong></div>
+                  {% endif %}
+                  <!-- Кнопки -->
+                  <div class="col text-right">
+                    <a href="/profile/wellness/{{card._id}}" class="btn btn-outline-primary btn">View Profile</a>
+                    <a href="/delete/wellness/{{card._id}}" class="btn btn-danger">Delete</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                {% if card.About %}
+                  {% for i in card.About[:1] %}
+                    <p >{{i}}</p>
+                  {% endfor %}
+                {% endif %} 
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+    {{ pagination.links }}
+  </div>
+</div>
+{% else %}
+  <h5 class="font-weight-bold text-dark text-center">No data found</h5>
+{% endif %}
+<script type="text/javascript">
+  /*Выбор специальности*/
+  $(document).ready(function(){
+    var multipleCancelButton = new Choices('#multiple-specialty', {
+    removeItemButton: true,
+    searchResultLimit:5
+    });
+    /*Выбор штата*/
+    var multipleCancelButton = new Choices('#multiple-state', {
+    removeItemButton: true,
+    searchResultLimit:5
+    });
+  });
+  /*По нажатию кнопки Scrape*/
+  $('#scrape').on('click', () => {
+    /*Кнока неактивна, выводится сообщение о работе подпроцесса*/
+    $('#scrape').attr('disabled', 'disabled');
+    $('#status').text('Scraper is working...')
+    /*Запись в список спициальностей*/
+    var selected = $('#multiple-specialty option:selected');
+    var specialty = [];
+    $(selected).each(function(index, brand){
+        specialty.push($(this).val());
+    });
+    /*Запись в список штатов*/
+    var selected = $('#multiple-state option:selected');
+    var state = [];
+    $(selected).each(function(index, brand){
+        state.push($(this).val());
+    });
+    /*Отправка аргументов на сервер*/
+    $.post('/wellness', {'specialty': specialty, 'state': state, 'city': city, 'email': email}, (res) => {
+      /*Кнока активна, перезаписывается ссобщения о работе подпроцесса, страница обновляется*/
+      $('#scrape').removeAttr('disabled');
+      $('#status').text('') 
+      location.reload();
+    });
+  });
+  /*Запись в список городов*/
+  let city = [];
+  $('#city').keyup(function(e) {
+    if (e.keyCode == 13) {
+      let $this = $(this);
+      $('#list').append('<li class="list-group-item">\
+              ' + $this.val() + '\
+                <button class="btn btn-danger btn-sm">Delete</button>\
+       </li>');
+     city.push($this.val());
+     $('#city').val('');
+    }
+  });
+  /*Удаление элементов списка*/
+  $('#list').on('click','button.btn', function(){
+    var $li = $(this).closest('li');
+    city.splice($li.index(), 1);
+    $li.remove();
+  });
+  /*Запись в список email*/
+  let email = [];
+  $('#email').keyup(function(e) {
+    if (e.keyCode == 13) {
+      let $this = $(this);
+      $('#list2').append('<li class="list-group-item">\
+              ' + $this.val() + '\
+                <button class="btn btn-danger btn-sm">Delete</button>\
+       </li>');
+     email.push($this.val());
+     $('#email').val('');
+    }
+  });
+  /*Удаление элементов списка*/
+  $('#list2').on('click','button.btn', function(){
+    var $li = $(this).closest('li');
+    email.splice($li.index(), 1);
+    $li.remove();
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,279 @@
+{% extends "layout.html" %}
+{% block title %} RateMDs {% endblock %}
+{% block body %}
+<style type="text/css">
+  .choices__list.choices__list--dropdown.is-active {
+  z-index: 4;
+}
+</style>
+<!-- Выбор специальности -->
+<div class="row d-flex justify-content-center mt-100">
+  <div class="col-md-10"> 
+    <select id="multiple-specialty" placeholder="Select specialty" multiple>
+      <option value="Acupuncturist"/>Acupuncturist</option>
+      <option value="Addiction Medicine Specialist"/>Addiction Medicine Specialist</option>
+      <option value="Addiction Medicine Specialist"/>Addiction Medicine Specialist</option>
+      <option value="Anesthesiologist"/>Anesthesiologist</option>
+      <option value="Audiologist"/>Audiologist</option>
+      <option value="bariatric-weight-loss"/>Bariatric / Weight Loss Specialist</option>
+      <option value="Cardiologist"/>Cardiologist</option>
+      <option value="Cardiothoracic Surgeon"/>Cardiothoracic Surgeon</option>
+      <option value="Chiropractor"/>Chiropractor</option>
+      <option value="Colorectal Surgeon / Proctologist"/>Colorectal Surgeon / Proctologist</option>
+      <option value="Dentist"/>Dentist</option>
+      <option value="Dermatologist"/>Dermatologist</option>
+      <option value="ear-nose-and-throat-ent"/>Ear Nose and Throat Doctor (ENT)</option>
+      <option value="emergency-critical"/>Emergency Room Doctor</option>
+      <option value="Endocrinologist"/>Endocrinologist</option>
+      <option value="Endodontist"/>Endodontist</option>
+      <option value="family-gp"/>Family Doctor / G.P.</option>
+      <option value="Gastroenterologist"/>Gastroenterologist</option>
+      <option value="surgeon-general"/>General Surgeon</option>
+      <option value="Geneticist"/>Geneticist</option>
+      <option value="gynecologist-obgyn"/>Gynecologist (OBGYN)</option>
+      <option value="Homeopath"/>Homeopath</option>
+      <option value="infectious-disease"/>Infectious Disease Specialist</option>
+      <option value="internist-geriatrician"/>Internist / Geriatrician</option>
+      <option value="Massage Therapist"/>Massage Therapist</option>
+      <option value="Midwife"/>Midwife</option>
+      <option value="Naturopath"/>Naturopath</option>
+      <option value="Nephrologist"/>Nephrologist</option>
+      <option value="Neurologist"/>Neurologist</option>
+      <option value="Neurosurgeon"/>Neurosurgeon</option>
+      <option value="Nurse Practitioner"/>Nurse Practitioner</option>
+      <option value="Occupational Therapist"/>Occupational Therapist</option>
+      <option value="oncologist-hematologist"/>Oncologist / Hematologist</option>
+      <option value="Ophthalmologist"/>Ophthalmologist</option>
+      <option value="Optometrist"/>Optometrist</option>
+      <option value="Oral Surgeon"/>Oral Surgeon</option>
+      <option value="Orthodontist"/>Orthodontist</option>
+      <option value="Orthopedic Surgeon"/>Orthopedic Surgeon</option>
+      <option value="pain-mgmt-physical-rehab"/>Pain Management Specialist / Physical Therapist</option>
+      <option value="Pathologist"/>Pathologist</option>
+      <option value="Pediatrician"/>Pediatrician</option>
+      <option value="perinatologist-maternal-fetal-medicine"/>Perinatologist (Maternal-Fetal Medicine)</option>
+      <option value="Periodontist"/>Periodontist</option>
+      <option value="cosmetic-plastic-surgeon"/>Plastic / Cosmetic Surgeon, Physician</option>
+      <option value="Podiatrist"/>Podiatrist</option>
+      <option value="Psychiatrist"/>Psychiatrist</option>
+      <option value="Psychologist"/>Psychologist</option>
+      <option value="Pulmonologist"/>Pulmonologist</option>
+      <option value="radiation-oncologist"/>Radiation Oncologist</option>
+      <option value="Radiologist"/>Radiologist</option>
+      <option value="Reproductive Endocrinologist"/>Reproductive Endocrinologist</option>
+      <option value="Rheumatologist"/>Rheumatologist</option>
+      <option value="Sleep Doctor"/>Sleep Doctor</option>
+      <option value="Sports Medicine Physician"/>Sports Medicine Physician</option>
+      <option value="Therapist"/>Therapist</option>
+      <option value="Urogynecologist"/>Urogynecologist</option>
+      <option value="Urologist"/>Urologist</option>
+      <option value="vascular-phlebologist"/>Vascular Surgeons / Phlebologists</option>
+    </select>
+    <!-- Выбор штата -->
+    <select id="multiple-state" placeholder="Select state" multiple>
+      <option value="al"/>Alabama</option>
+      <option value="ak"/>Alaska</option>
+      <option value="az"/>Arizona</option>  
+      <option value="ar"/>Arkansas</option>   
+      <option value="ca"/>California</option>   
+      <option value="co"/>Colorado</option>   
+      <option value="ct"/>Connecticut</option>   
+      <option value="de"/>Delaware</option>   
+      <option value="dc"/>District of Columbia</option>   
+      <option value="fl"/>Florida</option>   
+      <option value="ga"/>Georgia</option>   
+      <option value="hi"/>Hawaii</option>   
+      <option value="id"/>Idaho</option>   
+      <option value="il"/>Illinois</option>   
+      <option value="in"/>Indiana</option>   
+      <option value="ia"/>Iowa</option>   
+      <option value="ks"/>Kansas</option>   
+      <option value="ky"/>Kentucky</option>   
+      <option value="la"/>Louisiana</option>   
+      <option value="me"/>Maine</option>   
+      <option value="md"/>Maryland</option>   
+      <option value="ma"/>Massachusetts</option>   
+      <option value="mi"/>Michigan</option>   
+      <option value="mn"/>Minnesota</option>   
+      <option value="ms"/>Mississippi</option>   
+      <option value="mo"/>Missouri</option>   
+      <option value="mt"/>Montana</option>   
+      <option value="ne"/>Nebraska</option>   
+      <option value="nv"/>Nevada</option>   
+      <option value="nh"/>New Hampshire</option>   
+      <option value="nj"/>New Jersey</option>   
+      <option value="nm"/>New Mexico</option>   
+      <option value="ny"/>New York</option>   
+      <option value="nc"/>North Carolina</option>   
+      <option value="nd"/>North Dakota</option>   
+      <option value="oh"/>Ohio</option>   
+      <option value="ok"/>Oklahoma</option>     
+      <option value="or"/>Oregon</option>   
+      <option value="pa"/>Pennsylvania</option>   
+      <option value="ri"/>Rhode Island</option>   
+      <option value="sc"/>South Carolina</option>   
+      <option value="sd"/>South Dakota</option>   
+      <option value="tn"/>Tennessee</option>   
+      <option value="tx"/>Texas</option>   
+      <option value="ut"/>Utah</option>   
+      <option value="vt"/>Vermont</option>   
+      <option value="va"/>Virginia</option>   
+      <option value="wa"/>Washington</option>   
+      <option value="wv"/>West Virginia</option>   
+      <option value="mi"/>Wisconsin</option>   
+      <option value="wy"/>Wyoming</option>   
+    </select>
+    <!-- Ввод города и email -->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display</button>
+        <div class="dropdown-menu">
+          <ul id="list" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+      <input type="text" class="form-control mr-2" placeholder="Input city and press Enter" id="city">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display</button>
+        <div class="dropdown-menu">
+          <ul id="list2" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+      <input type="text" class="form-control" placeholder="Input email and press Enter" id="email">
+    </div>
+  </div>
+</div>
+<!-- Кнопки -->
+<div class="input-group justify-content-center">
+  <button id="scrape" class="btn btn-success mr-2">Scrape</button>
+  <a href="/remove/ratemds" class="btn btn-success mr-2">Remove</a>
+  <a href="/download/ratemds" class="btn btn-primary">Download</a>
+</div>
+<!-- Сообщение о работе подпроцесса -->
+<p id="status" class="text-center"></p>
+<!-- Отображение пагинации -->
+{% if pagination %}
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+  {{ pagination.links }}
+  </div>
+</div>
+{% endif %}
+<!-- Рендеринг карточек профилей -->
+{% if cards %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card mt-4">
+        <div class="card-body">
+          {% for card in cards %}
+            <div class="card mt-3">
+              <div class="card-header">
+                <div class="row">
+                  {% if card.First_and_Last_Name %}
+                    <div class="col"><strong>{{card.First_and_Last_Name}}</strong></div>
+                  {% endif %}
+                  <!-- Кнопки -->
+                  <div class="col text-right">
+                    <a href="/profile/ratemds/{{card._id}}" class="btn btn-outline-primary btn">View Profile</a>
+                    <a href="/delete/ratemds/{{card._id}}" class="btn btn-danger">Delete</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                {% if card.Biography %}
+                  <p>{{card.Biography}}</p>
+                {% endif %} 
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+    {{ pagination.links }}
+  </div>
+</div>
+{% else %}
+  <h5 class="font-weight-bold text-dark text-center">No data found</h5>
+{% endif %}
+<script type="text/javascript">
+  /*Выбор специальности*/
+  $(document).ready(function(){
+    var multipleCancelButton = new Choices('#multiple-specialty', {
+    removeItemButton: true,
+    searchResultLimit:5
+    });
+    /*Выбор штата*/
+    var multipleCancelButton = new Choices('#multiple-state', {
+    removeItemButton: true,
+    searchResultLimit:5
+    });
+  });
+  /*По нажатию кнопки Scrape*/
+  $('#scrape').on('click', () => {
+    /*Кнока неактивна, выводится сообщение о работе подпроцесса*/
+    $('#scrape').attr('disabled', 'disabled');
+    $('#status').text('Scraper is working...')
+    /*Запись в список спициальностей*/
+    var selected = $('#multiple-specialty option:selected');
+    var specialty = [];
+    $(selected).each(function(index, brand){
+        specialty.push($(this).val());
+    });
+    /*Запись в список штатов*/
+    var selected = $('#multiple-state option:selected');
+    var state = [];
+    $(selected).each(function(index, brand){
+        state.push($(this).val());
+    });
+    /*Отправка аргументов на сервер*/
+    $.post('/ratemds', {'specialty': specialty, 'state': state, 'city': city, 'email': email}, (res) => {
+      /*Кнока неактивна, выводится сообщение о работе подпроцесса*/
+      $('#scrape').removeAttr('disabled');
+      $('#status').text('') 
+      location.reload();
+    });
+  });
+  /*Запись в список городов*/
+  let city = [];
+  $('#city').keyup(function(e) {
+    if (e.keyCode == 13) {
+      let $this = $(this);
+      $('#list').append('<li class="list-group-item">\
+              ' + $this.val() + '\
+                <button class="btn btn-danger btn-sm">Delete</button>\
+       </li>');
+     city.push($this.val().toLowerCase().replace(/ /g, '-'));
+     $('#city').val('');
+    }
+  });
+  /*Удаление элементов списка*/
+  $('#list').on('click','button.btn', function(){
+    var $li = $(this).closest('li');
+    city.splice($li.index(), 1);
+    $li.remove();
+  });
+  /*Запись в список email*/
+  let email = [];
+  $('#email').keyup(function(e) {
+    if (e.keyCode == 13) {
+      let $this = $(this);
+      $('#list2').append('<li class="list-group-item">\
+              ' + $this.val() + '\
+                <button class="btn btn-danger btn-sm">Delete</button>\
+       </li>');
+     email.push($this.val());
+     $('#email').val('');
+    }
+  });
+  /*Удаление элементов списка*/
+  $('#list2').on('click','button.btn', function(){
+    var $li = $(this).closest('li');
+    email.splice($li.index(), 1);
+    $li.remove();
+  });
+</script>
+{% endblock %}

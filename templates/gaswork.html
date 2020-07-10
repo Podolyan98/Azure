@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+{% block title %} Gaswork {% endblock %}
+{% block body %}
+<style type="text/css">
+  .choices__list.choices__list--dropdown.is-active {
+  z-index: 4;
+}
+</style>
+<!-- Выбор специальности -->
+<div class="row d-flex justify-content-center mt-100">
+  <div class="col-md-10"> 
+    <select id="multiple-specialty" placeholder="Select specialty" multiple>
+      <option value="Anesthesiologist"/>Anesthesiologist</option>
+      <option value="CRNA"/>CRNA</option>
+    </select>
+    <!-- Ввод email -->
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Display</button>
+        <div class="dropdown-menu">
+          <ul id="list2" class="list-group list-group-flush"></ul>
+        </div>
+      </div>
+      <input type="text" class="form-control" placeholder="Input email and press Enter" id="email">
+    </div>
+  </div>
+</div>
+<!-- Кнопки -->
+<div class="input-group justify-content-center">
+  <button id="scrape" class="btn btn-success mr-2">Scrape</button>
+  <a href="/remove/gaswork" class="btn btn-success mr-2">Remove</a>
+  <a href="/download/gaswork" class="btn btn-primary">Download</a>
+</div>
+<!-- Сообщение о работе подпроцесса -->
+<p id="status" class="text-center"></p>
+<!-- Отображение пагинации -->
+{% if pagination %}
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+  {{ pagination.links }}
+  </div>
+</div>
+{% endif %}
+<!-- Рендеринг карточек профилей -->
+{% if cards %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card mt-4">
+        <div class="card-body">
+          {% for card in cards %}
+            <div class="card mt-3">
+              <div class="card-header">
+                <div class="row">
+                  {% if card.Contact_Name %}
+                    <div class="col"><strong>{{card.Contact_Name}}</strong></div>
+                  {% endif %}
+                  <!-- Кнопки -->
+                  <div class="col text-right">
+                    <a href="/profile/gaswork/{{card._id}}" class="btn btn-outline-primary btn">View Profile</a>
+                    <a href="/delete/gaswork/{{card._id}}" class="btn btn-danger">Delete</a>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                {% if card.Contact_City %}
+                  <p >{{card.Contact_City}}</p>
+                {% endif %} 
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex">
+  <div class="mx-auto justify-content-center">
+    {{ pagination.links }}
+  </div>
+</div>
+{% else %}
+  <h5 class="font-weight-bold text-dark text-center">No data found</h5>
+{% endif %}
+<script type="text/javascript">
+  /*Выбор специальности*/
+  $(document).ready(function(){
+    var multipleCancelButton = new Choices('#multiple-specialty', {
+    removeItemButton: true,
+    searchResultLimit:5
+    });
+  });
+  /*По нажатию кнопки Scrape*/
+  $('#scrape').on('click', () => {
+    $('#scrape').attr('disabled', 'disabled');
+    $('#status').text('Scraper is working...')
+    /*Запись в список спициальностей*/
+    var selected = $('#multiple-specialty option:selected');
+    var specialty = [];
+    $(selected).each(function(index, brand){
+        specialty.push($(this).val());
+    });
+    /*Отправка аргументов на сервер*/
+    $.post('/gaswork', {'specialty': specialty, 'email': email}, (res) => {
+      /*Кнока неактивна, выводится сообщение о работе подпроцесса*/
+      $('#scrape').removeAttr('disabled');
+      $('#status').text('') 
+      location.reload();
+    });
+  });
+  /*Запись в список email*/
+  let email = [];
+  $('#email').keyup(function(e) {
+    if (e.keyCode == 13) {
+      let $this = $(this);
+      $('#list2').append('<li class="list-group-item">\
+              ' + $this.val() + '\
+                <button class="btn btn-danger btn-sm">Delete</button>\
+       </li>');
+     email.push($this.val());
+     $('#email').val('');
+    }
+  });
+  /*Удаление элементов списка*/
+  $('#list2').on('click','button.btn', function(){
+    var $li = $(this).closest('li');
+    email.splice($li.index(), 1);
+    $li.remove();
+  });
+</script>
+{% endblock %}

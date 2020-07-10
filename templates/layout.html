@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1569006288/BBBootstrap/choices.min.css?version=7.0.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans" rel="stylesheet">
+    <link rel="icon" href="https://cdn2.iconfinder.com/data/icons/toolix-circular/125/spatula_scraper_tool_workshop_DIY-512.png">
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1569006273/BBBootstrap/choices.min.js?version=7.0.0"></script>
+    
+  </head>
+  <body>
+    <style>
+      .navbar {
+        background: #000000
+      }
+      .nav-item::after {
+       content: '';
+       display: block;
+       width: 0px;
+       height: 2px;
+       background: #fec400;
+       transition: 0.4s
+      }
+       .nav-item:hover::after {
+        width: 100%
+      }
+      .navbar-dark .navbar-nav .active>.nav-link,
+      .navbar-dark .navbar-nav .nav-link.active,
+      .navbar-dark .navbar-nav .nav-link.show,
+      .navbar-dark .navbar-nav .show>.nav-link,
+      .navbar-dark .navbar-nav .nav-link:focus,
+      .navbar-dark .navbar-nav .nav-link:hover {
+        color: #fec400
+      }
+      .nav-link {
+        padding: 10px ;
+        transition: 0.2s
+      .btn-circle {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        padding: 0;
+        border-radius: 50%;
+      }
+      .btn-circle {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        padding: 0;
+        border-radius: 50%;
+      }
+      .btn-circle i {
+        position: relative;
+        top: -1px;
+      }
+      .btn-circle-sm {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 0.9rem;
+      }
+    }
+    </style> 
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">FAQ</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="/wellness">Wellness</a></li>
+          <li class="nav-item"><a class="nav-link" href="/ratemds">RateMDs</a></li>
+          <li class="nav-item"><a class="nav-link" href="/healthgrades">Healthgrades</a></li>
+          <li class="nav-item"><a class="nav-link" href="/gaswork">Gaswork</a></li>
+        </ul>
+      </div>
+      <a href="/restart/app" class="btn btn-danger btn-circle btn-circle-sm m-1"><i class="fa fa-refresh"></i></a>
+    </nav>
+    <!-- Замещение контентом в зависимости от дочернего шаблона -->
+    {% block body %} {% endblock %}
+  </body>
+</html>

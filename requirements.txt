@@ -1,0 +1,10 @@
+Flask
+Scrapy
+flask-paginate
+flask_pymongo
+pymongo[srv]
+pymongo
+bson
+pandas
+flask_mail
+azure-mgmt-web
