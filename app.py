@@ -13,7 +13,7 @@ import logging
 
 
 app = Flask(__name__)
-"""строка подключения к базе данных"""
+"""подключение к базе данных"""
 app.config["MONGO_URI"] = " "
 mongo = PyMongo(app)
 
